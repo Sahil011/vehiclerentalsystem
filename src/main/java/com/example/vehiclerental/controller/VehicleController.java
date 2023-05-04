@@ -15,7 +15,7 @@ public class VehicleController {
 
     @Autowired
     public VehicleService vehicleService;
-
+    //TODO :-> CHANGE TO(ADD) REQUEST DTO TO ENDPOINT
     @PostMapping(value = "add/vehicle")
     public Vehicle addVehicle(@RequestBody Vehicle vehicle){
 
@@ -26,6 +26,6 @@ public class VehicleController {
     @ResponseBody
     public List<Vehicle> getAvailableVehicle(@RequestParam Date from, @RequestParam Date to, @RequestParam String vehicleType){
 
-        return vehicleService.getAvailableVehicles(from, to , VehicleType.getValue(vehicleType));
+        return vehicleService.getAvailableVehicles(from, to , VehicleType.valueOf(vehicleType));
     }
 }

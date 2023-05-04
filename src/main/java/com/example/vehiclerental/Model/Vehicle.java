@@ -1,6 +1,10 @@
 package com.example.vehiclerental.Model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
+
+import java.util.stream.Stream;
 
 @Data
 public class Vehicle implements Comparable<Vehicle>{
@@ -23,5 +27,7 @@ public class Vehicle implements Comparable<Vehicle>{
         if(this.getVehicleNumber().equals(vehicle.getVehicleNumber()))return true;
         return false;
     }
+
+
 
 }
