@@ -19,7 +19,7 @@ public class BookingRepo {
     Map<Integer, List<Booking>> vehicleBookings = new HashMap<>();
     public Booking createBooking(Booking bookingDto) throws Exception {
         for(Booking booking : bookings){
-            if(booking.getVehicle().equals(booking.getVehicle()) && BookingHelper.bookingAvailable(booking, bookingDto)){
+            if(!booking.getVehicle().equals(booking.getVehicle()) && !BookingHelper.bookingAvailable(booking, bookingDto)){
                 throw new Exception("Can't be booked as booking is already present for vehicle No:-> "+booking.getVehicle().getVehicleNumber());
             }
         }

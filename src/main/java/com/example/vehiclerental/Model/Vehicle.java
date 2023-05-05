@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
+import java.util.Objects;
 import java.util.stream.Stream;
 
 @Data
@@ -23,8 +24,11 @@ public class Vehicle implements Comparable<Vehicle>{
     }
 
 
-    public Boolean equals(Vehicle vehicle){
-        if(this.getVehicleNumber().equals(vehicle.getVehicleNumber()))return true;
+    @Override
+    public boolean equals(Object vehicle){
+        if(Objects.isNull(vehicle))return false;
+        if(vehicle.getClass()!=this.getClass())return false;
+        if(this.getVehicleNumber().equals(((Vehicle)vehicle).getVehicleNumber()))return true;
         return false;
     }
 
